@@ -1,0 +1,35 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  	<modelVersion>4.0.0</modelVersion>
+  	<groupId>maven</groupId>
+ 	<artifactId>demploy-file</artifactId>
+  	<version>1.0</version>
+  	<packaging>pom</packaging>
+  	<name>Deploy local jar file to remote repo</name>
+  	
+	<build>
+		<extensions>
+		  <extension>
+			<groupId>org.apache.maven.wagon</groupId>
+			 <artifactId>wagon-ftp</artifactId>
+			 <version>2.2</version>
+		  </extension>
+		  <extension>
+		  	<groupId>org.apache.maven.wagon</groupId>
+		  	<artifactId>wagon-ssh</artifactId>
+		  	<version>2.2</version>
+		  </extension>
+    </extensions>
+		
+	</build>
+	
+  <distributionManagement>
+  	<repository>
+  		<id>dmr</id>
+  		<name>Devhost Maven repositiry</name>
+		<url>scp://maven.devhost.org/home/MvnRoot</url>
+  		<layout>default</layout>
+  	</repository>
+  </distributionManagement>
+  
+</project>
